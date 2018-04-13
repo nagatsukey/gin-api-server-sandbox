@@ -1,22 +1,32 @@
 package models
 import (
-    "github.com/go-xorm/xorm"
-_ "github.com/go-sql-driver/mysql"
+    "github.com/jinzhu/gorm"
+    _ "github.com/jinzhu/gorm/dialects/mysql"
+    "fmt"
 )
-var engine *xorm.Engine
+var db *gorm.DB
 // init ...
 func init() {
     var err error
-    engine, err = xorm.NewEngine("mysql", "root:@/bookshelf")
+    DBMS     := "mysql"
+    USER     := "root"
+    PASS     := "******"
+    PROTOCOL := "********8:3306)"
+    DBNAME   := "bookshelf"
+    CONNECT := USER+":"+PASS+"@"+PROTOCOL+"/"+DBNAME
+
+    db, err := gorm.Open(DBMS, CONNECT)
     if err != nil {
         panic(err)
     }
+    fmt.Printf("connected!!")
+    //defer db.Close()
 }
 
 // User is
 type User struct {
-    ID       int    `json:"id" xorm:"'id'"`
-    Username string `json:"name" xorm:"'nickname'"`
+    ID       int    `json:id`
+    Username string `json:nickname`
 }
 
 // NewUser ...
@@ -36,10 +46,14 @@ func NewUserRepository() UserRepository {
 }
 // GetByID ...
 func (m UserRepository) GetByID(id int) *User {
-    var user = User{ID: id}
-    has, _ := engine.Get(&user)
+    //var user = User{ID: id}
+    var user User
+    db.Where(User{ID: id}).Find(&user)
+    return &user
+    /*
     if has {
         return &user
     }
-    return nil
+    */
+    //return nil
 }
