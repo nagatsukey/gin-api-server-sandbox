@@ -1,6 +1,6 @@
 package controllers
 import (
-    "bookshelf/models"
+    "gin-api-server-sandbox/models"
 )
 // User is
 type User struct {

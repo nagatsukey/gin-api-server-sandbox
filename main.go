@@ -1,6 +1,6 @@
 package main
 import (
-    "bookshelf/controllers"
+    "gin-api-server-sandbox/controllers"
     "github.com/gin-gonic/gin"
     "reflect"
     "strconv"
@@ -29,5 +29,5 @@ func main() {
         }
         c.JSON(200, result)
     })
-    router.Run(":8080")
+    router.Run(":8000")
 }
