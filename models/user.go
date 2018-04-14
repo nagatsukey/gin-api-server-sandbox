@@ -12,7 +12,7 @@ func init() {
     DBMS     := "mysql"
     USER     := "root"
     PASS     := "[パスワード]"
-    PROTOCOL := "[]エンドポイント].com:3306)"
+    PROTOCOL := "[エンドポイント].com:3306)"
     DBNAME   := "bookshelf"
     CONNECT := USER+":"+PASS+"@"+PROTOCOL+"/"+DBNAME
 
