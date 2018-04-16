@@ -1,2 +1,2 @@
-/config/*
-!/config/db_config_template.json
+db_config.json
+.DS_Store
