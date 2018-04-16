@@ -1,9 +1,10 @@
-package models
+package db
 
 import (
     "github.com/jinzhu/gorm"
-    _ "github.com/jinzhu/gorm/dialects/mysql"
+    _ "github.com/go-sql-driver/mysql"
     "gin-api-server-sandbox/config"
+    "models"
 )
 
 var err error
@@ -26,4 +27,8 @@ func init() {
     if err != nil {
         panic(err)
     }
+}
+
+func main(){
+    db.CreateTable(&models.User{})
 }
