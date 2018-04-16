@@ -1,7 +1,7 @@
 {
-    "DBMS": "mysql",
-    "USER": "root",
-    "PASS": "password",
-    "PROTOCOL": "tcp(＜エンドポイント＞:3306)",
-    "DBNAME": "dbname"
+    "dbms": "mysql",
+    "user": "root",
+    "pass": "password",
+    "protcol": "tcp(＜エンドポイント＞:3306)",
+    "dbname": "dbname"
 }
