@@ -4,13 +4,15 @@ import (
     "github.com/jinzhu/gorm"
     _ "github.com/jinzhu/gorm/dialects/mysql"
     "gin-api-server-sandbox/config"
+    "fmt"
+    "path/filepath"
 )
 
 var err error
 var db *gorm.DB
 
 func init() {
-    c, err := config.ReadDBConfig("/Users/s01076/go/src/gin-api-server-sandbox/config/db_config.json")
+    c, err := config.ReadDBConfig("./config/db_config.json")
     if err != nil {
         panic(err)
     }
