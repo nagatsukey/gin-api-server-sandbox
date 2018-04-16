@@ -4,9 +4,11 @@ import (
     "github.com/gin-gonic/gin"
     "reflect"
     "strconv"
+    "fmt"
 )
 // main ...
 func main() {
+    fmt.Printf("testet/n")
     router := gin.Default()
     router.GET("/:id", func(c *gin.Context) {
         // Pramを処理する
@@ -22,6 +24,7 @@ func main() {
         }
         // データを処理する
         ctrl := controllers.NewUser()
+        fmt.Printf("%+v", ctrl)
         result := ctrl.Get(id)
         if result == nil || reflect.ValueOf(result).IsNil() {
             c.JSON(404, gin.H{})
