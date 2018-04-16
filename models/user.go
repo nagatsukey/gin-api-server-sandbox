@@ -47,8 +47,7 @@ func NewUserRepository() UserRepository {
 // GetByID ...
 func (m UserRepository) GetByID(id int) *User {
     user := User{}
-    user.ID = 1
+    user.ID = id
     db.First(&user)
-    fmt.Printf("%s\n", user.Nickname)
     return &user
 }
